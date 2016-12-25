@@ -4,11 +4,11 @@ JSON Graph-based Query Language
 Using a json structure to provide GraphQL features.
 
 ```json5
-// int | float | str | enum | $customType
+//TYPES: int | float | str | enum | object | $customType
 {
     "$schema": {
         "enumStatus": {
-            "$type": "enum",
+            "$type": "enum", // if amited assume object
             "$values": [
                 {"name":"active", "value": "A"},
                 {"name":"suspended", "value":"I"},
@@ -63,7 +63,7 @@ Using a json structure to provide GraphQL features.
 ```json5
 {
     "users-list-1083746374": {
-        "$scope": "listUsers",
+        "$query": "listUsers",
         "$args": {
             "offset": 100,
             "limit": 300
@@ -74,7 +74,7 @@ Using a json structure to provide GraphQL features.
     },
 
     "users-28394783423": {
-        "$scope": "saveUser",
+        "$query": "saveUser",
         "$args": {
           "id": 9349384, // this would cause it to fail -- would be marked as readonly
           "firstName": "John",
@@ -86,3 +86,7 @@ Using a json structure to provide GraphQL features.
     }
 }
 ```
+
+
+##### TODO
+Write actual spec.
